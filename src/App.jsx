@@ -171,6 +171,11 @@ export default function App() {
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-950 to-slate-950" />
         <div className="relative z-10 text-center px-6 max-w-3xl animate-fade-up">
+          <img
+            src="/profile.png"
+            alt="Jorge Amilkar Bolívar Mora"
+            className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 object-cover border-4 border-blue-500 shadow-xl shadow-blue-500/30 animate-float"
+          />
           <p className="text-blue-400 font-medium mb-4 tracking-wide">Hola, soy</p>
           <h1 className="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-white via-blue-200 to-cyan-300 bg-clip-text text-transparent">
             Jorge Amilkar Bolívar Mora
