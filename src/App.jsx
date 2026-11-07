@@ -193,7 +193,7 @@ export default function App() {
             <a href="#contacto" className="px-6 py-3 rounded-xl border border-slate-700 hover:border-blue-400 font-semibold transition hover:-translate-y-1">
               Contactar
             </a>
-            <a href="/CV-AMILKAR2.pdf" download className="px-6 py-3 rounded-xl border border-slate-700 hover:border-blue-400 font-semibold transition hover:-translate-y-1">
+            <a href="/CV-AMILKAR2(2).pdf" download className="px-6 py-3 rounded-xl border border-slate-700 hover:border-blue-400 font-semibold transition hover:-translate-y-1">
               Descargar CV
             </a>
           </div>
