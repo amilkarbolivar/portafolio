@@ -58,22 +58,7 @@ const projects = [
     link: 'https://github.com/amilkarbolivar/portafolio',
     live: 'https://portafolioamilkar.duckdns.org',
   },
-  {
-    title: 'Análisis y Visualización de Datos',
-    tech: ['Power BI', 'Power Query', 'Python', 'SQL'],
-    description:
-      'Limpieza y transformación de datasets con Power Query (tratamiento de nulos, tipado), construcción de modelos de datos y dashboards interactivos para analizar indicadores, tendencias y patrones de negocio.',
-    highlight: 'Dashboards interactivos con KPIs y filtros dinámicos.',
-    link: 'https://github.com/amilkarbolivar',
-  },
-  {
-    title: 'Visión por Computador con PyTorch',
-    tech: ['Python', 'PyTorch'],
-    description:
-      'Exploración de un proyecto de visión por computador: revisión de dependencias, configuración del entorno de ejecución y estructura del proyecto para integrar modelos de aprendizaje automático en una solución de software.',
-    highlight: 'Integración de modelos de deep learning en pipeline de software.',
-    link: 'https://github.com/amilkarbolivar',
-  },
+
 ];
 
 const certifications = [
