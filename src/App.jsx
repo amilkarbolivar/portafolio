@@ -22,6 +22,15 @@ const skills = [
 
 const projects = [
   {
+    title: 'Vikos Store — Tienda en línea',
+    tech: ['React', 'Node.js', 'PostgreSQL', 'Docker', 'AWS'],
+    description:
+      'Tienda en línea desplegada en AWS con frontend moderno y backend robusto. Incluye catálogo de productos, carrito de compras y gestión de pedidos, con despliegue automatizado en contenedores.',
+    highlight: 'E-commerce completo desplegado en producción con HTTPS.',
+    link: 'https://github.com/amilkarbolivar/Vikos_store',
+    live: 'https://vikosstore.duckdns.org/',
+  },
+  {
     title: 'Sistema de Inventario Multitenant',
     tech: ['Java', 'Spring Boot', 'Spring Data JPA', 'MySQL', 'Docker', 'AWS'],
     description:
@@ -226,9 +235,16 @@ export default function App() {
                   </span>
                 ))}
               </div>
-              <a href={p.link} target="_blank" rel="noreferrer" className="text-blue-400 text-sm font-medium hover:underline self-start">
-                Ver en GitHub →
-              </a>
+              <div className="space-y-1 self-start">
+                <a href={p.link} target="_blank" rel="noreferrer" className="block text-blue-400 text-xs font-mono hover:underline break-all">
+                  {p.link}
+                </a>
+                {p.live && (
+                  <a href={p.live} target="_blank" rel="noreferrer" className="block text-cyan-400 text-xs font-mono hover:underline break-all">
+                    {p.live}
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
