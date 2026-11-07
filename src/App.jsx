@@ -122,10 +122,10 @@ export default function App() {
     setSending(true);
     setContactError('');
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://formspree.io/f/mdeevgno', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(contact),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ name: contact.name, email: contact.email, message: contact.message }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));

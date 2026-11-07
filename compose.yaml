@@ -6,16 +6,3 @@ services:
     restart: unless-stopped
     ports:
       - "${PORT:-8081}:80"
-    depends_on:
-      - contact-api
-
-  contact-api:
-    build: ./contact-api
-    restart: unless-stopped
-    environment:
-      PORT: 3000
-      GMAIL_USER: ${GMAIL_USER}
-      GMAIL_APP_PASSWORD: ${GMAIL_APP_PASSWORD}
-    # Puerto interno solamente (accesible por el servicio web)
-
-  # (opcional) si quieres exponer solo web, comenta el puerto de contact-api
