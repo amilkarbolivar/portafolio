@@ -37,6 +37,8 @@ const projects = [
       'Sistema de gestión de inventario para múltiples establecimientos (multitenant). Backend con Java y Spring Boot, APIs REST seguras con JWT, persistencia con JPA/MySQL, gestión de productos, usuarios, compras, ventas e inventario. Contenerizado con Docker y desplegado en AWS.',
     highlight: 'Arquitectura multitenant con aislamiento por establecimiento.',
     link: 'https://github.com/amilkarbolivar/Inventario',
+    frontend: 'https://github.com/amilkarbolivar/Inventario_frontend',
+    live: 'http://3.149.216.100',
   },
   {
     title: 'UniMental — Salud Mental Universitaria',
@@ -45,6 +47,16 @@ const projects = [
       'Plataforma web full stack con frontend React, API REST Node.js/Express, PostgreSQL y despliegue con Docker Compose en AWS EC2. Incluye foros comunitarios, directorio de servicios de salud, artículos informativos y cuestionarios de autoevaluación con disclaimer profesional.',
     highlight: 'Despliegue completo con HTTPS (Caddy + Let\'s Encrypt) y CI/CD.',
     link: 'https://github.com/amilkarbolivar/web_salud.universitaria',
+    live: 'https://saluduniversitaria.duckdns.org',
+  },
+  {
+    title: 'Portafolio Profesional',
+    tech: ['React', 'Vite', 'Tailwind CSS', 'Docker', 'AWS'],
+    description:
+      'Portafolio web moderno con animaciones, sección de proyectos, certificaciones y contacto. Desplegado en AWS con HTTPS automático.',
+    highlight: 'Diseño moderno con animaciones 3D y certificaciones SENA.',
+    link: 'https://github.com/amilkarbolivar/portafolio',
+    live: 'https://portafolioamilkar.duckdns.org',
   },
   {
     title: 'Análisis y Visualización de Datos',
@@ -239,6 +251,11 @@ export default function App() {
                 <a href={p.link} target="_blank" rel="noreferrer" className="block text-blue-400 text-xs font-mono hover:underline break-all">
                   {p.link}
                 </a>
+                {p.frontend && (
+                  <a href={p.frontend} target="_blank" rel="noreferrer" className="block text-purple-400 text-xs font-mono hover:underline break-all">
+                    {p.frontend}
+                  </a>
+                )}
                 {p.live && (
                   <a href={p.live} target="_blank" rel="noreferrer" className="block text-cyan-400 text-xs font-mono hover:underline break-all">
                     {p.live}
