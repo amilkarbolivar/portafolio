@@ -38,7 +38,7 @@ const projects = [
     highlight: 'Arquitectura multitenant con aislamiento por establecimiento.',
     link: 'https://github.com/amilkarbolivar/Inventario',
     frontend: 'https://github.com/amilkarbolivar/Inventario_frontend',
-    live: 'http://3.149.216.100',
+    live: 'https://inventariosupermercado.duckdns.org/',
   },
   {
     title: 'UniMental — Salud Mental Universitaria',
