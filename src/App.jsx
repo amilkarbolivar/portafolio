@@ -112,6 +112,33 @@ function Section({ id, title, children, delay = 0 }) {
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [contact, setContact] = useState({ name: '', email: '', message: '' });
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [contactError, setContactError] = useState('');
+
+  const handleContact = async (e) => {
+    e.preventDefault();
+    setSending(true);
+    setContactError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(contact),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Error al enviar');
+      }
+      setSent(true);
+      setContact({ name: '', email: '', message: '' });
+    } catch (err) {
+      setContactError(err.message || 'No se pudo enviar el mensaje');
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-slate-950">
@@ -302,16 +329,44 @@ export default function App() {
 
       {/* Contacto */}
       <Section id="contacto" title="Contacto" delay={600}>
-        <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 text-center">
-          <p className="text-slate-300 mb-6">¿Tienes una oportunidad o proyecto? Hablemos.</p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <a href="mailto:amilkarbolivar5@gmail.com" className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 font-semibold transition hover:-translate-y-1">
-              Enviar email
-            </a>
-            <a href="https://github.com/amilkarbolivar" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-xl border border-slate-700 hover:border-blue-400 font-semibold transition hover:-translate-y-1">
-              GitHub
-            </a>
-          </div>
+        <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+          <p className="text-slate-300 mb-6 text-center">¿Tienes una oportunidad o proyecto? Hablemos.</p>
+          <form onSubmit={handleContact} className="max-w-xl mx-auto space-y-4">
+            <input
+              type="text"
+              placeholder="Tu nombre"
+              value={contact.name}
+              onChange={(e) => setContact({ ...contact, name: e.target.value })}
+              required
+              className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white"
+            />
+            <input
+              type="email"
+              placeholder="Tu email"
+              value={contact.email}
+              onChange={(e) => setContact({ ...contact, email: e.target.value })}
+              required
+              className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white"
+            />
+            <textarea
+              placeholder="Tu mensaje"
+              value={contact.message}
+              onChange={(e) => setContact({ ...contact, message: e.target.value })}
+              required
+              rows={5}
+              className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 focus:border-blue-500 focus:outline-none text-white resize-none"
+            />
+            {contactError && <p className="text-red-400 text-sm">{contactError}</p>}
+            {sent && <p className="text-green-400 text-sm">¡Mensaje enviado correctamente!</p>}
+            <div className="flex justify-center gap-4 flex-wrap">
+              <button type="submit" disabled={sending} className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 font-semibold transition hover:-translate-y-1 disabled:opacity-60">
+                {sending ? 'Enviando...' : 'Enviar mensaje'}
+              </button>
+              <a href="https://github.com/amilkarbolivar" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-xl border border-slate-700 hover:border-blue-400 font-semibold transition hover:-translate-y-1">
+                GitHub
+              </a>
+            </div>
+          </form>
         </div>
       </Section>
 
