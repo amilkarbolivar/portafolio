@@ -171,16 +171,20 @@ export default function App() {
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-950 to-slate-950" />
         <div className="relative z-10 text-center px-6 max-w-3xl animate-fade-up">
-          <img
-            src="/profile.png"
-            alt="Jorge Amilkar Bolívar Mora"
-            className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 object-cover border-4 border-blue-500 shadow-xl shadow-blue-500/30 animate-float"
-          />
-          <p className="text-blue-400 font-medium mb-4 tracking-wide">Hola, soy</p>
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-white via-blue-200 to-cyan-300 bg-clip-text text-transparent">
-            Jorge Amilkar Bolívar Mora
-          </h1>
-          <p className="text-xl md:text-2xl text-slate-300 mb-2">Analista de datos · Desarrollador Full Stack</p>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-6">
+            <img
+              src="/profile.png"
+              alt="Jorge Amilkar Bolívar Mora"
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-blue-500 shadow-xl shadow-blue-500/30 animate-float"
+            />
+            <div className="text-center md:text-left">
+              <p className="text-blue-400 font-medium mb-2 tracking-wide">Hola, soy</p>
+              <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-white via-blue-200 to-cyan-300 bg-clip-text text-transparent">
+                Jorge Amilkar Bolívar Mora
+              </h1>
+            </div>
+          </div>
+          <p className="text-xl md:text-2xl text-slate-300 mb-2">Desarrollador Full Stack</p>
           <p className="text-slate-400 mb-8">Python, SQL, Java, Spring Boot, Power BI, Docker & AWS</p>
           <div className="flex justify-center gap-4 flex-wrap">
             <a href="#proyectos" className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 font-semibold transition shadow-lg shadow-blue-600/30 hover:-translate-y-1">
