@@ -193,6 +193,9 @@ export default function App() {
             <a href="#contacto" className="px-6 py-3 rounded-xl border border-slate-700 hover:border-blue-400 font-semibold transition hover:-translate-y-1">
               Contactar
             </a>
+            <a href="/CV_Amilkar_Bolivar.pdf" download className="px-6 py-3 rounded-xl border border-slate-700 hover:border-blue-400 font-semibold transition hover:-translate-y-1">
+              Descargar CV
+            </a>
           </div>
           <div className="flex justify-center gap-5 mt-10 text-2xl text-slate-400">
             <a href="https://github.com/amilkarbolivar" target="_blank" rel="noreferrer" className="hover:text-white transition hover:scale-110"><FaGithub /></a>
