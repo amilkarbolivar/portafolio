@@ -1,23 +1,23 @@
 import { useState } from 'react';
 import {
   FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt,
-  FaPython, FaJava, FaDocker, FaAws, FaDatabase, FaChartBar,
+  FaPython, FaJava, FaDocker, FaAws, FaDatabase, FaChartBar, FaCertificate,
 } from 'react-icons/fa';
 import {
   SiSpringboot, SiPytorch, SiGit,
 } from 'react-icons/si';
 
 const skills = [
-  { name: 'Python', icon: <FaPython /> },
-  { name: 'Java', icon: <FaJava /> },
-  { name: 'Spring Boot', icon: <SiSpringboot /> },
-  { name: 'SQL / MySQL', icon: <FaDatabase /> },
-  { name: 'Power BI', icon: <FaChartBar /> },
-  { name: 'PyTorch', icon: <SiPytorch /> },
-  { name: 'Docker', icon: <FaDocker /> },
-  { name: 'AWS', icon: <FaAws /> },
-  { name: 'Git / GitHub', icon: <SiGit /> },
-  { name: 'Power Query', icon: <FaChartBar /> },
+  { name: 'Python', icon: <FaPython />, desc: 'Análisis de datos, automatización y prototipos de IA.' },
+  { name: 'Java', icon: <FaJava />, desc: 'Desarrollo backend robusto y orientado a objetos.' },
+  { name: 'Spring Boot', icon: <SiSpringboot />, desc: 'APIs REST, seguridad JWT y arquitectura por capas.' },
+  { name: 'SQL / MySQL', icon: <FaDatabase />, desc: 'Modelado relacional, consultas y CRUD.' },
+  { name: 'Power BI', icon: <FaChartBar />, desc: 'Dashboards interactivos y modelos de datos.' },
+  { name: 'PyTorch', icon: <SiPytorch />, desc: 'Visión por computador y aprendizaje automático.' },
+  { name: 'Docker', icon: <FaDocker />, desc: 'Contenerización y despliegue de aplicaciones.' },
+  { name: 'AWS', icon: <FaAws />, desc: 'Servicios cloud y despliegue en EC2.' },
+  { name: 'Git / GitHub', icon: <SiGit />, desc: 'Control de versiones y trabajo colaborativo.' },
+  { name: 'Power Query', icon: <FaChartBar />, desc: 'Limpieza y transformación de datos.' },
 ];
 
 const projects = [
@@ -25,29 +25,48 @@ const projects = [
     title: 'Sistema de Inventario Multitenant',
     tech: ['Java', 'Spring Boot', 'Spring Data JPA', 'MySQL', 'Docker', 'AWS'],
     description:
-      'Sistema de gestión de inventario para múltiples establecimientos con enfoque multitenant. Backend con Java y Spring Boot, APIs REST, persistencia con JPA/MySQL, gestión de productos, usuarios e inventario. Contenerizado con Docker.',
+      'Sistema de gestión de inventario para múltiples establecimientos (multitenant). Backend con Java y Spring Boot, APIs REST seguras con JWT, persistencia con JPA/MySQL, gestión de productos, usuarios, compras, ventas e inventario. Contenerizado con Docker y desplegado en AWS.',
+    highlight: 'Arquitectura multitenant con aislamiento por establecimiento.',
+    link: 'https://github.com/amilkarbolivar/Inventario',
+  },
+  {
+    title: 'UniMental — Salud Mental Universitaria',
+    tech: ['React', 'Vite', 'Node.js', 'PostgreSQL', 'Docker', 'AWS'],
+    description:
+      'Plataforma web full stack con frontend React, API REST Node.js/Express, PostgreSQL y despliegue con Docker Compose en AWS EC2. Incluye foros comunitarios, directorio de servicios de salud, artículos informativos y cuestionarios de autoevaluación con disclaimer profesional.',
+    highlight: 'Despliegue completo con HTTPS (Caddy + Let\'s Encrypt) y CI/CD.',
+    link: 'https://github.com/amilkarbolivar/web_salud.universitaria',
+  },
+  {
+    title: 'Análisis y Visualización de Datos',
+    tech: ['Power BI', 'Power Query', 'Python', 'SQL'],
+    description:
+      'Limpieza y transformación de datasets con Power Query (tratamiento de nulos, tipado), construcción de modelos de datos y dashboards interactivos para analizar indicadores, tendencias y patrones de negocio.',
+    highlight: 'Dashboards interactivos con KPIs y filtros dinámicos.',
     link: 'https://github.com/amilkarbolivar',
   },
   {
     title: 'Visión por Computador con PyTorch',
     tech: ['Python', 'PyTorch'],
     description:
-      'Exploración de un proyecto de visión por computador: revisión de dependencias, configuración del entorno y estructura del proyecto para integrar modelos de aprendizaje automático.',
+      'Exploración de un proyecto de visión por computador: revisión de dependencias, configuración del entorno de ejecución y estructura del proyecto para integrar modelos de aprendizaje automático en una solución de software.',
+    highlight: 'Integración de modelos de deep learning en pipeline de software.',
     link: 'https://github.com/amilkarbolivar',
   },
+];
+
+const certifications = [
   {
-    title: 'Análisis y Visualización de Datos',
-    tech: ['Power BI', 'Power Query', 'Python', 'SQL'],
-    description:
-      'Limpieza y transformación de datasets, construcción de modelos de datos y dashboards interactivos para analizar indicadores y tendencias.',
-    link: 'https://github.com/amilkarbolivar',
+    title: 'Despliegue de Aplicaciones y Servicios en Contenedores Docker',
+    org: 'SENA — Centro de Electricidad, Electrónica y Telecomunicaciones',
+    date: 'Octubre 2026 · 48 horas',
+    desc: 'Formación en contenerización de aplicaciones con Docker: imágenes, contenedores, redes, volúmenes y despliegue de servicios.',
   },
   {
-    title: 'UniMental — Salud Mental Universitaria',
-    tech: ['React', 'Vite', 'Node.js', 'PostgreSQL', 'Docker'],
-    description:
-      'Plataforma web full stack con frontend React, API REST Node.js/Express, PostgreSQL y despliegue con Docker Compose. Incluye foros, directorio y cuestionarios informativos.',
-    link: 'https://github.com/amilkarbolivar/web_salud.universitaria',
+    title: 'Aplicación de la Inteligencia Artificial en la Integración de Datos',
+    org: 'SENA — Centro de Industria y Construcción',
+    date: 'Septiembre 2026 · 48 horas',
+    desc: 'Integración de datos y aplicación de IA para análisis, identificación de patrones y soporte a la toma de decisiones.',
   },
 ];
 
@@ -59,9 +78,9 @@ const education = [
   },
 ];
 
-function Section({ id, title, children }) {
+function Section({ id, title, children, delay = 0 }) {
   return (
-    <section id={id} className="max-w-6xl mx-auto px-6 py-20">
+    <section id={id} className="max-w-6xl mx-auto px-6 py-20 animate-fade-up" style={{ animationDelay: `${delay}ms` }}>
       <h2 className="text-3xl md:text-4xl font-bold mb-10 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
         {title}
       </h2>
@@ -86,6 +105,7 @@ export default function App() {
               ['Sobre mí', 'sobre-mi'],
               ['Habilidades', 'habilidades'],
               ['Proyectos', 'proyectos'],
+              ['Certificaciones', 'certificaciones'],
               ['Educación', 'educacion'],
               ['Contacto', 'contacto'],
             ].map(([l, id]) => (
@@ -102,6 +122,7 @@ export default function App() {
               ['Sobre mí', 'sobre-mi'],
               ['Habilidades', 'habilidades'],
               ['Proyectos', 'proyectos'],
+              ['Certificaciones', 'certificaciones'],
               ['Educación', 'educacion'],
               ['Contacto', 'contacto'],
             ].map(([l, id]) => (
@@ -116,7 +137,7 @@ export default function App() {
       {/* Hero */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-950 to-slate-950" />
-        <div className="relative z-10 text-center px-6 max-w-3xl">
+        <div className="relative z-10 text-center px-6 max-w-3xl animate-fade-up">
           <p className="text-blue-400 font-medium mb-4 tracking-wide">Hola, soy</p>
           <h1 className="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-white via-blue-200 to-cyan-300 bg-clip-text text-transparent">
             Jorge Amilkar Bolívar Mora
@@ -124,22 +145,22 @@ export default function App() {
           <p className="text-xl md:text-2xl text-slate-300 mb-2">Analista de datos · Desarrollador Full Stack</p>
           <p className="text-slate-400 mb-8">Python, SQL, Java, Spring Boot, Power BI, Docker & AWS</p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <a href="#proyectos" className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 font-semibold transition shadow-lg shadow-blue-600/30">
+            <a href="#proyectos" className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 font-semibold transition shadow-lg shadow-blue-600/30 hover:-translate-y-1">
               Ver proyectos
             </a>
-            <a href="#contacto" className="px-6 py-3 rounded-xl border border-slate-700 hover:border-blue-400 font-semibold transition">
+            <a href="#contacto" className="px-6 py-3 rounded-xl border border-slate-700 hover:border-blue-400 font-semibold transition hover:-translate-y-1">
               Contactar
             </a>
           </div>
           <div className="flex justify-center gap-5 mt-10 text-2xl text-slate-400">
-            <a href="https://github.com/amilkarbolivar" target="_blank" rel="noreferrer" className="hover:text-white transition"><FaGithub /></a>
-            <a href="mailto:amilkarbolivar5@gmail.com" className="hover:text-white transition"><FaEnvelope /></a>
+            <a href="https://github.com/amilkarbolivar" target="_blank" rel="noreferrer" className="hover:text-white transition hover:scale-110"><FaGithub /></a>
+            <a href="mailto:amilkarbolivar5@gmail.com" className="hover:text-white transition hover:scale-110"><FaEnvelope /></a>
           </div>
         </div>
       </section>
 
       {/* Sobre mí */}
-      <Section id="sobre-mi" title="Sobre mí">
+      <Section id="sobre-mi" title="Sobre mí" delay={100}>
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="text-slate-300 leading-relaxed space-y-4">
             <p>
@@ -162,7 +183,7 @@ export default function App() {
               { label: 'Email', value: 'amilkarbolivar5@gmail.com', icon: <FaEnvelope /> },
               { label: 'GitHub', value: 'amilkarbolivar', icon: <FaGithub /> },
             ].map((i) => (
-              <div key={i.label} className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+              <div key={i.label} className="bg-slate-900 border border-slate-800 rounded-2xl p-4 hover:border-blue-500 hover:-translate-y-1 transition">
                 <div className="text-blue-400 text-xl mb-2">{i.icon}</div>
                 <p className="text-xs text-slate-500">{i.label}</p>
                 <p className="text-sm font-medium break-all">{i.value}</p>
@@ -173,32 +194,39 @@ export default function App() {
       </Section>
 
       {/* Habilidades */}
-      <Section id="habilidades" title="Habilidades técnicas">
+      <Section id="habilidades" title="Habilidades técnicas" delay={200}>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {skills.map((s) => (
-            <div key={s.name} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col items-center gap-3 hover:border-blue-500 hover:-translate-y-1 transition">
-              <span className="text-3xl text-blue-400">{s.icon}</span>
+            <div key={s.name} className="card-3d bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col items-center gap-3 hover:border-blue-500 group">
+              <span className="text-3xl text-blue-400 group-hover:scale-110 transition-transform duration-300">{s.icon}</span>
               <span className="text-sm font-medium text-slate-200">{s.name}</span>
+              <span className="text-xs text-slate-500 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">{s.desc}</span>
             </div>
           ))}
         </div>
       </Section>
 
       {/* Proyectos */}
-      <Section id="proyectos" title="Proyectos destacados">
+      <Section id="proyectos" title="Proyectos destacados" delay={300}>
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((p) => (
-            <div key={p.title} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col hover:border-blue-500 transition">
-              <h3 className="text-xl font-semibold mb-3">{p.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-4 flex-1">{p.description}</p>
+            <div key={p.title} className="card-3d bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xl font-semibold">{p.title}</h3>
+                <span className="text-xs px-2 py-1 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">
+                  {p.tech[0]}
+                </span>
+              </div>
+              <p className="text-slate-400 text-sm leading-relaxed mb-3 flex-1">{p.description}</p>
+              <p className="text-blue-300 text-xs italic mb-4">★ {p.highlight}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {p.tech.map((t) => (
-                  <span key={t} className="text-xs px-2 py-1 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">
+                  <span key={t} className="text-xs px-2 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
                     {t}
                   </span>
                 ))}
               </div>
-              <a href={p.link} target="_blank" rel="noreferrer" className="text-blue-400 text-sm font-medium hover:underline">
+              <a href={p.link} target="_blank" rel="noreferrer" className="text-blue-400 text-sm font-medium hover:underline self-start">
                 Ver en GitHub →
               </a>
             </div>
@@ -206,11 +234,31 @@ export default function App() {
         </div>
       </Section>
 
+      {/* Certificaciones */}
+      <Section id="certificaciones" title="Certificaciones" delay={400}>
+        <div className="grid md:grid-cols-2 gap-6">
+          {certifications.map((c) => (
+            <div key={c.title} className="card-3d bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-2xl text-yellow-400"><FaCertificate /></span>
+                <h3 className="text-lg font-semibold">{c.title}</h3>
+              </div>
+              <p className="text-slate-400 text-sm leading-relaxed mb-3 flex-1">{c.desc}</p>
+              <p className="text-xs text-slate-500">{c.org}</p>
+              <p className="text-xs text-blue-400 mt-1">{c.date}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-xs text-slate-500 mt-6 text-center">
+          Certificados emitidos por el SENA. Verificables en certificados.sena.edu.co
+        </p>
+      </Section>
+
       {/* Educación */}
-      <Section id="educacion" title="Formación académica">
+      <Section id="educacion" title="Formación académica" delay={500}>
         <div className="space-y-4">
           {education.map((e) => (
-            <div key={e.title} className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <div key={e.title} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-blue-500 transition">
               <h3 className="font-semibold text-lg">{e.title}</h3>
               <p className="text-slate-400">{e.org}</p>
               <p className="text-sm text-blue-400 mt-1">{e.date}</p>
@@ -220,14 +268,14 @@ export default function App() {
       </Section>
 
       {/* Contacto */}
-      <Section id="contacto" title="Contacto">
+      <Section id="contacto" title="Contacto" delay={600}>
         <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 text-center">
           <p className="text-slate-300 mb-6">¿Tienes una oportunidad o proyecto? Hablemos.</p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <a href="mailto:amilkarbolivar5@gmail.com" className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 font-semibold transition">
+            <a href="mailto:amilkarbolivar5@gmail.com" className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 font-semibold transition hover:-translate-y-1">
               Enviar email
             </a>
-            <a href="https://github.com/amilkarbolivar" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-xl border border-slate-700 hover:border-blue-400 font-semibold transition">
+            <a href="https://github.com/amilkarbolivar" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-xl border border-slate-700 hover:border-blue-400 font-semibold transition hover:-translate-y-1">
               GitHub
             </a>
           </div>
